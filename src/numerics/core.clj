@@ -3,7 +3,7 @@
             DecompositionSolver LUDecomposition RealVector ArrayRealVector]))
 
 (defn linear-solve
-  "Solves aX = b linear systems wrapping same functionality from
+  "Solves aX = b linear systems wrapping some functionality from
   commons-math3."
   [coeficients constants]
   (-> (map double-array coeficients)
