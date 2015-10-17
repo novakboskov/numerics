@@ -23,12 +23,16 @@
 
 (defn underd-pseudo-inverse
   "Suppose y = M*x and assume n<m.
-  In this case there are fewer constraints than unknowns, and the system is underdetermined, with an infinite number of solutions.
-  We can pick one of these solutions by finding the smallest one. That is, we will minimize x subject to the constraint y = M*x. The method of Lagrange multipliers has us add a term to the quantity to be minimized:
+  In this case there are fewer constraints than unknowns, and the system is
+  underdetermined, with an infinite number of solutions.
+  We can pick one of these solutions by finding the smallest one.
+  That is, we will minimize x subject to the constraint y = M*x.
+  The method of Lagrange multipliers has us add a term to the quantity to be minimized:
   ||x||^2 + lambda^T * (y − M*x)
   Differentiting w.r.t x and setting the result equal to zero yields
   2*x − M^T * lambda = 0
-  We can’t just solve for lambda since M is not a square matrix, but we can premultiply by M to obtain:
+  We can’t just solve for lambda since M is not a square matrix,
+  but we can premultiply by M to obtain:
   2*M*x − M*M^T*lambda = 0 and using:
   y = Mx gives us:
   2*y = M*M^T*lambda
@@ -47,8 +51,10 @@
 
 (defn overd-pseudo-inverse
   "Suppose y = M*x and assume n>m.
-  In this case there are more constraints than unknowns, and the system is overdetermined, with no solutions (except for degenerate cases).
-  We can find a least-squares solution that minimizes the error (y − M*x). We want to find x that minimizes:
+  In this case there are more constraints than unknowns,
+  and the system is overdetermined, with no solutions (except for degenerate cases).
+  We can find a least-squares solution that minimizes the error (y − M*x).
+  We want to find x that minimizes:
   ||y − M*x||^2 , or:
   (y − M*x)^T * (y − M*x), or:
   y^T * y − y^T * M*x − x^T * M^T * y + x^T * M^T * M*x
